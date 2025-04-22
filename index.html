@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NekoStream</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #18182F;
+      font-family: Arial, sans-serif;
+      background-color: #121124;
       color: white;
     }
 
     header {
-      background-color: #FF4DA6;
+      background-color: #ff3399;
       padding: 20px;
       text-align: center;
-      font-size: 2rem;
+      font-size: 32px;
       font-weight: bold;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      background-color: #1c1b2e;
       padding: 10px;
-      background-color: #18182F;
+      gap: 20px;
     }
 
     nav a {
@@ -34,44 +34,44 @@
       font-weight: bold;
     }
 
-    .anime-section {
-      padding: 30px;
+    .section {
+      padding: 20px;
     }
 
-    .anime-cards {
+    .anime-container {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
 
     .anime-card {
-      background-color: #252542;
-      border-radius: 10px;
+      background-color: #1f1e33;
       padding: 10px;
+      border-radius: 10px;
       width: 150px;
       text-align: center;
     }
 
     .anime-card img {
       width: 100%;
-      border-radius: 5px;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .anime-card p {
+      margin: 10px 0 0;
     }
 
     .iframe-container {
       margin-top: 30px;
-      display: flex;
-      justify-content: center;
+      text-align: center;
     }
 
     iframe {
-      width: 80%;
-      height: 400px;
+      width: 90%;
+      height: 500px;
       border: none;
       border-radius: 10px;
-    }
-
-    h2 {
-      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -86,32 +86,35 @@
     <a href="#">Community</a>
   </nav>
 
-  <div class="anime-section">
+  <div class="section">
     <h2>Featured Anime</h2>
-    <div class="anime-cards">
+    <div class="anime-container">
       
       <!-- Death Note -->
       <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/9/9453.jpg" alt="Death Note">
-        <p><a href="#" style="color: #66ccff;">Death Note</a></p>
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/Death_Note_Vol_1.jpg" alt="Death Note">
+        <p><a href="#watch-deathnote" style="color: violet;">Death Note</a></p>
       </div>
 
-      <!-- Placeholder cards -->
+      <!-- Placeholder Anime Cards -->
       <div class="anime-card">
-        <img src="https://placehold.co/150x200?text=Anime+2" alt="Anime 2">
+        <img src="https://via.placeholder.com/150x200?text=Anime+2" alt="Anime 2">
         <p>Anime Title 2</p>
       </div>
 
       <div class="anime-card">
-        <img src="https://placehold.co/150x200?text=Anime+3" alt="Anime 3">
+        <img src="https://via.placeholder.com/150x200?text=Anime+3" alt="Anime 3">
         <p>Anime Title 3</p>
       </div>
 
     </div>
+  </div>
 
-    <h2>Watch Now</h2>
+  <!-- Watch Now Section -->
+  <div class="section" id="watch-deathnote">
+    <h2>Watch Now: Death Note</h2>
     <div class="iframe-container">
-      <iframe src="https://example.com/embed/episode" allowfullscreen></iframe>
+      <iframe src="https://d00000.cloudstreamcdn.com/deathnote-episode1" allowfullscreen></iframe>
     </div>
   </div>
 
