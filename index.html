@@ -8,98 +8,55 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #121212;
+      background-color: #141322;
       color: white;
-      line-height: 1.6;
     }
-
     header {
       background-color: #ff4cb2;
-      padding: 30px;
+      padding: 20px;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
-      text-transform: uppercase;
     }
-
     nav {
       display: flex;
       justify-content: center;
-      background-color: #2c2a41;
-      padding: 15px 0;
+      background-color: #1e1d2b;
+      padding: 10px 0;
     }
-
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 25px;
+      margin: 0 20px;
       font-weight: bold;
-      font-size: 1.1rem;
     }
-
-    nav a:hover {
-      color: #ff4cb2;
-    }
-
     .section {
-      padding: 40px 20px;
+      padding: 20px;
     }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
     .anime-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 30px;
-      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
-
     .anime-card {
-      background-color: #1e1c30;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #222132;
+      padding: 10px;
+      border-radius: 10px;
+      width: 150px;
+      text-align: center;
     }
-
     .anime-card img {
       width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-bottom: 4px solid #ff4cb2;
+      border-radius: 8px;
     }
-
-    .anime-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    }
-
-    .anime-card p {
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #fff;
-      background-color: #333;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-    }
-
-    .anime-card a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     .iframe-container {
+      margin-top: 20px;
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
       height: 0;
-      margin-top: 20px;
     }
-
     .iframe-container iframe {
       position: absolute;
       top: 0;
@@ -107,13 +64,10 @@
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 12px;
     }
-    
   </style>
 </head>
 <body>
-
   <header>NekoStream</header>
 
   <nav>
@@ -123,7 +77,6 @@
     <a href="#">Community</a>
   </nav>
 
-  <!-- Featured Anime Section -->
   <div class="section">
     <h2>Featured Anime</h2>
     <div class="anime-container">
@@ -135,20 +88,14 @@
         </a>
       </div>
 
-      <!-- Other Anime Cards -->
+      <!-- Placeholder cards -->
       <div class="anime-card">
-        <img src="https://placehold.co/300x400?text=Anime+2" alt="Anime Title 2">
-        <p>Anime Title 2</p>
+        <img src="https://placehold.co/150x200" alt="Anime Title 1">
+        <p>Anime Title 1</p>
       </div>
-
       <div class="anime-card">
-        <img src="https://placehold.co/300x400?text=Anime+3" alt="Anime Title 3">
+        <img src="https://placehold.co/150x200?text=Anime+3" alt="Anime Title 3">
         <p>Anime Title 3</p>
-      </div>
-
-      <div class="anime-card">
-        <img src="https://placehold.co/300x400?text=Anime+4" alt="Anime Title 4">
-        <p>Anime Title 4</p>
       </div>
     </div>
   </div>
@@ -163,6 +110,5 @@
       </iframe>
     </div>
   </div>
-
 </body>
 </html>
