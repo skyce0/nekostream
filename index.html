@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NekoStream</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: #fefefe;
+    }
+    header {
+      background-color: #ff4da6;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .anime-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .anime-card {
+      background-color: #2e2e3f;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .anime-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .iframe-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>NekoStream</header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Anime List</a>
+    <a href="#">Genres</a>
+    <a href="#">Community</a>
+  </nav>
+  <div class="container">
+    <h2>Featured Anime</h2>
+    <div class="anime-grid">
+      <div class="anime-card">
+        <img src="https://placehold.co/150x200?text=Anime+1" alt="Anime 1">
+        <p>Anime Title 1</p>
+      </div>
+      <div class="anime-card">
+        <img src="https://placehold.co/150x200?text=Anime+2" alt="Anime 2">
+        <p>Anime Title 2</p>
+      </div>
+      <div class="anime-card">
+        <img src="https://placehold.co/150x200?text=Anime+3" alt="Anime 3">
+        <p>Anime Title 3</p>
+      </div>
+    </div>
+
+    <h2>Watch Now</h2>
+    <div class="iframe-container">
+      <iframe src="https://example.com/embed/episode" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</body>
+</html>
