@@ -2,113 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NekoStream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For You, With Love</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #141322;
-      color: white;
+    :root {
+      --bg: #fff7fb;
+      --card: #ffeaf2;
+      --text: #4a3b4f;
+      --accent: #ff7aa2;
+      --accent-2: #ffb3c7;
+      --glow: rgba(255, 122, 162, 0.35);
     }
-    header {
-      background-color: #ff4cb2;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #1e1d2b;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-    }
-    .section {
-      padding: 20px;
-    }
-    .anime-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
-    .anime-card {
-      background-color: #222132;
-      padding: 10px;
-      border-radius: 10px;
-      width: 150px;
-      text-align: center;
-    }
-    .anime-card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .iframe-container {
-      margin-top: 20px;
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-    }
-    .iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+
+    * { box-sizing: border-box; }
+    html, body {
       height: 100%;
-      border: none;
+      margin: 0;
+      background: radial-gradient(1200px circle at 20% 10%, #fff0f7, var(--bg));
+      color: var(--text);
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .card {
+      width: min(720px, 92vw);
+      background: linear-gradient(180deg, var(--card), #fffafc 70%);
+      border-radius: 24px;
+      padding: 2.25rem;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08),
+        0 0 0 10px #ffffff,
+        0 0 40px var(--glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .heart-bg {
+      position: absolute;
+      inset: -20% -10% auto auto;
+      opacity: 0.12;
+      filter: blur(2px);
+      font-size: 9rem;
+      animation: float 7s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .heart {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 8px 20px var(--glow);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .note {
+      background: #fff;
+      border: 1px dashed #ffd3df;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      box-shadow: inset 0 0 12px rgba(255, 179, 199, 0.18);
+      margin: 1rem 0 1.5rem;
+    }
+
+    .lines {
+      display: grid;
+      gap: 0.75rem;
+      margin: 1.25rem 0 2rem;
+      line-height: 1.7;
+    }
+    .line {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .line .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,122,162,0.12);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .love {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--accent);
+      text-shadow:
+        0 2px 10px var(--glow),
+        0 1px 0 #fff;
+      position: relative;
+      display: inline-block;
+    }
+
+    .sparkles {
+      position: absolute;
+      inset: -12px -24px auto auto;
+      font-size: 1.2rem;
+      opacity: 0.8;
+      animation: twinkle 1.8s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .sub {
+      margin-top: 0.4rem;
+      color: #765a70;
+      font-size: 0.98rem;
+    }
+
+    .cta {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.1rem;
+      background: #ffffff;
+      border: 1px solid #ffd9e4;
+      border-radius: 999px;
+      color: var(--accent);
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(255, 122, 162, 0.18);
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(255, 122, 162, 0.24);
+    }
+
+    /* Tiny hearts drifting at the bottom */
+    .drift {
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      transform: translateX(-50%);
+      pointer-events: none;
+      display: flex;
+      gap: 10px;
+    }
+    .drift span {
+      color: var(--accent);
+      filter: drop-shadow(0 2px 6px var(--glow));
+      animation: rise 6s linear infinite;
+      opacity: 0.7;
+    }
+    .drift span:nth-child(2) { animation-delay: 1.2s; transform: scale(0.9); }
+    .drift span:nth-child(3) { animation-delay: 2.1s; transform: scale(1.1); }
+    @keyframes rise {
+      0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.0; }
+      10%  { opacity: 0.8; }
+      50%  { transform: translateY(-40px) translateX(-10px) rotate(6deg); }
+      100% { transform: translateY(-90px) translateX(12px) rotate(-8deg); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .heart, .heart-bg, .sparkles, .drift span { animation: none; }
     }
   </style>
 </head>
 <body>
-  <header>NekoStream</header>
+  <main class="wrap">
+    <section class="card" aria-label="Love letter">
+      <div class="heart-bg">💖</div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Anime List</a>
-    <a href="#">Genres</a>
-    <a href="#">Community</a>
-  </nav>
+      <div class="header">
+        <div class="heart" aria-hidden="true">❤</div>
+        <h1>A little note for you</h1>
+      </div>
 
-  <div class="section">
-    <h2>Featured Anime</h2>
-    <div class="anime-container">
-      <!-- Death Note Card -->
-      <div class="anime-card">
-        <a href="#deathnote">
-          <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/Death_Note_Vol_1.jpg" alt="Death Note">
-          <p>Death Note</p>
+      <p class="note">
+        Hey you. I could write a thousand lines and still not capture how your smile rewrites my day.
+        So here’s a tiny constellation of words that shine the way my heart does when I think of you.
+      </p>
+
+      <div class="lines">
+        <div class="line">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Every sunrise feels softer knowing you’re somewhere under the same sky.</span>
+        </div>
+        <div class="line">
+          <span class="dot" aria-hidden="true"></span>
+          <span>In the quiet moments, your name is the warmest thing I know.</span>
+        </div>
+        <div class="line">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Your laugh? That’s my favorite soundtrack—on loop, forever.</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="love">
+          I love you
+          <span class="sparkles">✨</span>
+        </div>
+        <div class="sub">Today, tomorrow, always.</div>
+
+        <a class="cta" href="#"
+           onclick="alert('Psst… it’s true. Forever. ❤'); return false;">
+          ❤ Promise
         </a>
       </div>
 
-      <!-- Placeholder cards -->
-      <div class="anime-card">
-        <img src="https://placehold.co/150x200" alt="Anime Title 1">
-        <p>Anime Title 1</p>
+      <div class="drift" aria-hidden="true">
+        <span>❤</span><span>💗</span><span>💞</span>
       </div>
-      <div class="anime-card">
-        <img src="https://placehold.co/150x200?text=Anime+3" alt="Anime Title 3">
-        <p>Anime Title 3</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Watch Section -->
-  <div class="section" id="deathnote">
-    <h2>Watch Death Note</h2>
-    <div class="iframe-container">
-      <iframe 
-        src="https://hianime.to/embed/1st-episode-of-death-note-60?autoplay=1" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 </html>
