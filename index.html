@@ -1,132 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Question</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NekoStream</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #ffe6f2;
-      margin-top: 100px;
+      background-color: #141322;
+      color: white;
     }
-    .box {
-      display: inline-block;
+    header {
+      background-color: #ff4cb2;
       padding: 20px;
-      border: 2px solid #ff66b2;
-      border-radius: 15px;
-      background-color: #fff0f5;
-      box-shadow: 0 0 10px #ff99cc;
-      transition: all 0.3s ease;
-    }
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    /* YES button styling */
-    .yesBtn {
-      background: linear-gradient(45deg, #ff66b2, #ff99cc);
-      color: white;
+      text-align: center;
+      font-size: 2rem;
       font-weight: bold;
-      animation: pulse 1.5s infinite;
-      box-shadow: 0 0 15px #ff66b2;
-      position: relative;
-      overflow: hidden;
     }
-    .yesBtn:hover {
-      transform: scale(1.2);
-      background: linear-gradient(45deg, #ff3385, #ff66b2);
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1e1d2b;
+      padding: 10px 0;
     }
-    .yesBtn::after {
-      content: "💖";
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: floatHearts 2s infinite;
-      opacity: 0.8;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    @keyframes floatHearts {
-      0% { top: -10px; opacity: 0.8; }
-      50% { top: -40px; opacity: 0.4; }
-      100% { top: -10px; opacity: 0.8; }
-    }
-    /* NO button styling */
-    .noBtn {
-      background-color: #ff66b2;
+    nav a {
       color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
     }
-    .noBtn:hover {
-      background-color: #ff3385;
-      transform: scale(1.1);
+    .section {
+      padding: 20px;
     }
-    .cracked {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      border: 2px dashed #ff3385;
+    .anime-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .anime-card {
+      background-color: #222132;
+      padding: 10px;
+      border-radius: 10px;
+      width: 150px;
+      text-align: center;
+    }
+    .anime-card img {
+      width: 100%;
       border-radius: 8px;
-      background-color: #ffe6f2;
-      color: #ff3385;
-      font-size: 16px;
-      cursor: not-allowed;
-      transform: rotate(-10deg);
-      box-shadow: 2px 2px 5px #ff99cc;
+    }
+    .iframe-container {
+      margin-top: 20px;
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <div class="box" id="questionBox">
-    <h2>Will you be my Girlfriend?</h2>
-    <button class="yesBtn" onclick="answerYes()">Yes</button>
-    <button class="noBtn" id="noBtn" onclick="answerNo()">No</button>
+  <header>NekoStream</header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Anime List</a>
+    <a href="#">Genres</a>
+    <a href="#">Community</a>
+  </nav>
+
+  <div class="section">
+    <h2>Featured Anime</h2>
+    <div class="anime-container">
+      <!-- Death Note Card -->
+      <div class="anime-card">
+        <a href="#deathnote">
+          <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/Death_Note_Vol_1.jpg" alt="Death Note">
+          <p>Death Note</p>
+        </a>
+      </div>
+
+      <!-- Placeholder cards -->
+      <div class="anime-card">
+        <img src="https://placehold.co/150x200" alt="Anime Title 1">
+        <p>Anime Title 1</p>
+      </div>
+      <div class="anime-card">
+        <img src="https://placehold.co/150x200?text=Anime+3" alt="Anime Title 3">
+        <p>Anime Title 3</p>
+      </div>
+    </div>
   </div>
 
-  <script>
-    let noClicks = 0;
-
-    function answerYes() {
-      document.getElementById("questionBox").innerHTML = `
-        <h2>Aww you're so cute 💖</h2>
-        <p>Why did you click yes? Are you interested?</p>
-      `;
-    }
-
-    function answerNo() {
-      noClicks++;
-      if (noClicks < 6) {
-        let emojis = ["🌸", "💖", "💕", "🥺", "🌷", "✨"];
-        let emoji = emojis[noClicks - 1] || "🌸";
-        document.getElementById("questionBox").innerHTML = `
-          <h2>Are you sure? ${emoji}</h2>
-          <button class="yesBtn" onclick="answerYesAgain()">Yes</button>
-          <button class="noBtn" id="noBtn" onclick="answerNo()">No</button>
-        `;
-      } else {
-        document.getElementById("questionBox").innerHTML = `
-          <h2>Are you sure? 💔</h2>
-          <button class="yesBtn" onclick="answerYesAgain()">Yes</button>
-          <span class="cracked">No ❌</span>
-        `;
-      }
-    }
-
-    function answerYesAgain() {
-      document.getElementById("questionBox").innerHTML = `
-        <h2>Aww, okay 💕</h2>
-        <p>From now on You're Sky's (My) Girlfriend Officially! 🎉💖</p>
-      `;
-    }
-  </script>
+  <!-- Watch Section -->
+  <div class="section" id="deathnote">
+    <h2>Watch Death Note</h2>
+    <div class="iframe-container">
+      <iframe 
+        src="https://hianime.to/embed/1st-episode-of-death-note-60?autoplay=1" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 </body>
 </html>
